@@ -132,7 +132,9 @@ def simulate_read(record, error_model, i, cpu_number, sequence_type):
         # if sequence_type == metagenomics, get a random start position
         # if sequence_type == amplicon, start position is the start of the read
         if sequence_type == "metagenomics":
-            forward_start = random.randrange(0, len(record.seq) - fragment_length)
+            # forward_start = random.randrange(0, len(record.seq) - fragment_length)
+            # changed so anchoring read1 to the start of the fragment where the primer is 
+            forward_start = 0 
         elif sequence_type == "amplicon":
             forward_start = 0
         else:
